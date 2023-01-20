@@ -3,7 +3,6 @@
 
 # include <iostream>
 # include <cmath>
-# include <math.h>
 
 //# define DEBUG
 
