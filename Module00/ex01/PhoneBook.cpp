@@ -15,7 +15,6 @@ void	PhoneBook::addContact()
 	int	i = phoneBookIndex % 8;
 
 	contacts[i].setIndex(i);
-	std::cin.ignore();
 	std::cout << "First Name : ";
 	std::getline(std::cin, phName);
 	contacts[i].setName(phName);
@@ -60,7 +59,8 @@ std::string	columnCheck(std::string str)
 
 void	PhoneBook::searchContact()
 {
-	int index;
+	int index = 0;
+	std::string str;
 
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
 	for (int i = 0; i < PhoneBook::contactCount; i++)
@@ -74,10 +74,28 @@ void	PhoneBook::searchContact()
 		std::cout << std::right << std::setw(10) << columnCheck(contacts[i].getPhoneNumber());
 		std::cout << std::endl;
 	}
-	std::cout << "Index : ";
-	std::cin >> index;
-	if (index < 0 || index >= PhoneBook::contactCount)
-		std::cout << "Bad index !" << std::endl;
-	else
-		PhoneBook::printContact(index);
+	while (1)
+	{
+		std::cout << "Index (to exit: EXIT): ";
+		std::getline(std::cin, str);
+		if (str == "EXIT")
+			return ;
+		for (unsigned long i = 0; i < str.length(); i++)
+		{
+			if (!isdigit(str[i]))
+			{
+				index = -1;
+				break ;
+			}
+		}
+		if (index == 0 && str.length() > 0)
+		{
+			if (stoi(str) < 0 || stoi(str) >= PhoneBook::contactCount)
+				std::cout << "Invalid argument" << std::endl;
+			else
+				printContact(stoi(str));
+		}
+		else
+			std::cout << "Invalid argument" << std::endl;
+	}
 }

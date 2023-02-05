@@ -8,7 +8,7 @@ int main()
 	while (1)
 	{
 		std::cout << "Enter command(ADD / SEARCH / EXIT): ";
-		std::cin >> command;
+		std::getline(std::cin, command);
 		if (command == "EXIT")
 			break ;
 		else if (command == "ADD")
