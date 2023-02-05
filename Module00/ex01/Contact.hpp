@@ -2,6 +2,8 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <iomanip>
+# include <ctype.h>
 
 class Contact
 {
