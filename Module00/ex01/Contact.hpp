@@ -3,7 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
-# include <ctype.h>
+# include <stdlib.h>
 
 class Contact
 {

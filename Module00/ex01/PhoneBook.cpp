@@ -42,10 +42,10 @@ void	PhoneBook::addContact()
 
 void	PhoneBook::printContact(int index)
 {
-	std::cout << "First name : " + PhoneBook::contacts[index].getName() << std::endl;
-	std::cout << "Last name : " + PhoneBook::contacts[index].getSurName() << std::endl;
-	std::cout << "Nickname : " + PhoneBook::contacts[index].getNickName() << std::endl;
-	std::cout << "Phone number : " + PhoneBook::contacts[index].getPhoneNumber() << std::endl;
+	std::cout << "First name : " + PhoneBook::contacts[index].getName() << "\n";
+	std::cout << "Last name : " + PhoneBook::contacts[index].getSurName() << "\n";
+	std::cout << "Nickname : " + PhoneBook::contacts[index].getNickName() << "\n";
+	std::cout << "Phone number : " + PhoneBook::contacts[index].getPhoneNumber() << "\n";
 	std::cout << "Darkest secret : " + PhoneBook::contacts[index].getDarkestSecret() << std::endl;
 }
 
@@ -59,7 +59,6 @@ std::string	columnCheck(std::string str)
 
 void	PhoneBook::searchContact()
 {
-	int index = 0;
 	std::string str;
 
 	std::cout << "     index|first name| last name|  nickname" << std::endl;
@@ -71,11 +70,13 @@ void	PhoneBook::searchContact()
 		std::cout << "|";
 		std::cout << std::right << std::setw(10) << columnCheck(contacts[i].getSurName());
 		std::cout << "|";
-		std::cout << std::right << std::setw(10) << columnCheck(contacts[i].getPhoneNumber());
+		std::cout << std::right << std::setw(10) << columnCheck(contacts[i].getNickName());
 		std::cout << std::endl;
 	}
 	while (1)
 	{
+		int index = 0;
+
 		std::cout << "Index (to exit: EXIT): ";
 		std::getline(std::cin, str);
 		if (str == "EXIT")
@@ -90,10 +91,13 @@ void	PhoneBook::searchContact()
 		}
 		if (index == 0 && str.length() > 0)
 		{
-			if (stoi(str) < 0 || stoi(str) >= PhoneBook::contactCount)
+			if (atoi(str.c_str()) < 0 || atoi(str.c_str()) >= PhoneBook::contactCount)
 				std::cout << "Invalid argument" << std::endl;
 			else
-				printContact(stoi(str));
+			{
+				printContact(atoi(str.c_str()));
+				return ;
+			}
 		}
 		else
 			std::cout << "Invalid argument" << std::endl;
