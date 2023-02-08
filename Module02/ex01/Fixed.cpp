@@ -3,35 +3,48 @@
 Fixed::Fixed()
 {
 	fixedPointValue = 0;
+#ifdef DEBUG
 	std::cout << "Default constructor called" << std::endl;
+#endif
 }
 
 Fixed::Fixed(const int integer)
 {
+#ifdef DEBUG
 	std::cout << "Int constructor called" << std::endl;
+#endif
 	fixedPointValue = integer << _fractionalBits;
 }
 
 Fixed::Fixed(const float floatingPoint)
 {
+#ifdef DEBUG
 	std::cout << "Float constructor called" << std::endl;
+#endif
 	fixedPointValue = roundf(floatingPoint * (1 << _fractionalBits));
+	std::cout << fixedPointValue << std::endl;
 }
 
 Fixed::Fixed(const Fixed &copy)
 {
+#ifdef DEBUG
 	std::cout << "Copy constructor called" << std::endl;
+#endif
 	*this = copy;
 }
 
 Fixed::~Fixed()
 {
+#ifdef DEBUG
 	std::cout << "Destructor called" << std::endl;
+#endif
 }
 
 Fixed& Fixed::operator=(const Fixed &copy)
 {
+#ifdef DEBUG
 	std::cout << "Copy assignment operator called" << std::endl;
+#endif
 	fixedPointValue = copy.getRawBits();
 	return (*this);
 }
