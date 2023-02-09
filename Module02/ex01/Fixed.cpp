@@ -21,8 +21,7 @@ Fixed::Fixed(const float floatingPoint)
 #ifdef DEBUG
 	std::cout << "Float constructor called" << std::endl;
 #endif
-	fixedPointValue = roundf(floatingPoint * (1 << _fractionalBits));
-	std::cout << fixedPointValue << std::endl;
+	fixedPointValue = round(floatingPoint * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &copy)
@@ -45,7 +44,7 @@ Fixed& Fixed::operator=(const Fixed &copy)
 #ifdef DEBUG
 	std::cout << "Copy assignment operator called" << std::endl;
 #endif
-	fixedPointValue = copy.getRawBits();
+	setRawBits(copy.getRawBits());
 	return (*this);
 }
 
