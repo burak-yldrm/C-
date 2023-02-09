@@ -21,7 +21,7 @@ Fixed::Fixed(const float floatingPoint)
 #ifdef DEBUG
 	std::cout << "Float constructor called" << std::endl;
 #endif
-	fixedPointValue = round(floatingPoint * (1 << _fractionalBits));
+	fixedPointValue = roundf(floatingPoint * (1 << _fractionalBits));
 }
 
 Fixed::Fixed(const Fixed &copy)
