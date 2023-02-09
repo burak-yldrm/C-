@@ -1,6 +1,6 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() : WrongAnimal()
+WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
 #ifdef DEBUG
 	std::cout << "WrongCat default constructor called" << std::endl;
