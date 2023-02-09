@@ -1,7 +1,8 @@
 NAME	= DiamondTrap
 CC		= g++
 CFLAGS	= -Wall -Wextra -Werror -std=c++98 -I./lib -Wshadow
-#-Wshadow proje içerisindeki tüm değişkenlerin isimlerinin farklı olması gerektiğini söyler. Bu şekilde bir değişkenin ismi ile başka bir değişkenin ismi aynı olursa uyarı verir.
+#-Wshadow proje içerisindeki aynı fonksiyonda veya 
+#aynı class da değişkenlerin isimlerinin farklı olması gerektiğini söyler. Bu şekilde bir değişkenin ismi ile başka bir değişkenin ismi aynı olursa uyarı verir.
 #-Wno-shadow ise bu uyarıyı kapatır.
 
 SRCDIR	= src
