@@ -16,7 +16,8 @@ int main(int argc, char **argv)
 				std::cout << (char)toupper(argv[i][j]);
 				j++;
 			}
-			std::cout << " ";
+			if (argc > 2 && argv[i + 1])
+				std::cout << " ";
 			i++;
 			j = 0;
 		}
