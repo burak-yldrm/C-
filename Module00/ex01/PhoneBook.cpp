@@ -73,6 +73,7 @@ void	PhoneBook::searchContact()
 		std::cout << std::right << std::setw(10) << columnCheck(contacts[i].getNickName());
 		std::cout << std::endl;
 	}
+
 	while (1)
 	{
 		int index = 0;
