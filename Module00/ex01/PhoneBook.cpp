@@ -83,7 +83,7 @@ void	PhoneBook::searchContact()
 			return ;
 		for (unsigned long i = 0; i < str.length(); i++)
 		{
-			if (!isdigit(str[i]))
+			if (!isdigit(str[i]) || str.length() > 10)
 			{
 				index = -1;
 				break ;
