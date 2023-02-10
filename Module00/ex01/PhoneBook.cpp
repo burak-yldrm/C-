@@ -77,7 +77,7 @@ void	PhoneBook::searchContact()
 	{
 		int index = 0;
 
-		std::cout << "Index (to exit: EXIT): ";
+		std::cout << "Index (to exit write: EXIT): ";
 		std::getline(std::cin, str);
 		if (str == "EXIT")
 			return ;
