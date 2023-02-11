@@ -14,26 +14,53 @@ void	PhoneBook::addContact()
 {
 	int	i = phoneBookIndex % 8;
 
+	while (true)
+	{
+		if (phName.empty())
+		{
+			std::cout << "First Name : ";
+			std::getline(std::cin, phName);
+		}
+		if (phSurName.empty())
+		{
+			std::cout << "Last Name : ";
+			std::getline(std::cin, phSurName);
+		}
+		if (phNickName.empty())
+		{
+			std::cout << "Nick Name : ";
+			std::getline(std::cin, phNickName);
+		}
+		if (phPhoneNumber.empty())
+		{
+			std::cout << "Phone Number : ";
+			std::getline(std::cin, phPhoneNumber);
+		}
+		if (phDarkestSecret.empty())
+		{
+			std::cout << "Darkest secret : ";
+			std::getline(std::cin, phDarkestSecret);
+		}
+		if (phName.empty() || phSurName.empty() || phNickName.empty() || phPhoneNumber.empty() || phDarkestSecret.empty())
+		{
+			std::cout << "You must fill all fields (You were redirected directly to the missing fields)" << std::endl;
+			continue ;
+		}
+		if (!phName.empty() && !phSurName.empty() && !phNickName.empty() && !phPhoneNumber.empty() && !phDarkestSecret.empty())
+			break ;
+	}
+
 	contacts[i].setIndex(i);
-	std::cout << "First Name : ";
-	std::getline(std::cin, phName);
 	contacts[i].setName(phName);
-
-	std::cout << "Last Name : ";
-	std::getline(std::cin, phSurName);
 	contacts[i].setSurName(phSurName);
-
-	std::cout << "Nick Name : ";
-	std::getline(std::cin, phNickName);
 	contacts[i].setNickName(phNickName);
-
-	std::cout << "Phone Number : ";
-	std::getline(std::cin, phPhoneNumber);
 	contacts[i].setPhoneNumber(phPhoneNumber);
-
-	std::cout << "Darkest secret : ";
-	std::getline(std::cin, phDarkestSecret);
 	contacts[i].setDarkestSecret(phDarkestSecret);
+	phName.clear();
+	phSurName.clear();
+	phNickName.clear();
+	phPhoneNumber.clear();
+	phDarkestSecret.clear();
 
 	phoneBookIndex++;
 	if (contactCount < 8)
