@@ -18,6 +18,7 @@ int	main()
 		jim.attack();
 		club.setType("some other type of club");
 		jim.setWeapon(NULL);
+		jim.setWeapon(&club);
 		jim.attack();
 	}
 }
