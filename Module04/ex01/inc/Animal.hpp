@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-#define DEBUG
+//#define DEBUG
 
 class	Animal
 {

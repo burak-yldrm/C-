@@ -1,22 +1,24 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : Animal("Dog"), brain(new Brain())
 {
 #ifdef DEBUG
 	std::cout << "Dog constructor called" << std::endl;
 #endif
 }
 
-Dog::Dog(const Dog &copy)
+Dog::Dog(const Dog &copy) : Animal()
 {
 #ifdef DEBUG
 	std::cout << "Dog copy constructor called" << std::endl;
 #endif
-	*this = copy;
+	type = copy.type;
+	brain = new Brain(*copy.brain);
 }
 
 Dog::~Dog()
 {
+	delete brain;
 #ifdef DEBUG
 	std::cout << "Dog destructor called" << std::endl;
 #endif
@@ -24,11 +26,13 @@ Dog::~Dog()
 
 Dog &Dog::operator=(const Dog &copy)
 {
-#ifdef DEBUG
-	std::cout << "Dog assignation operator called" << std::endl;
-#endif
-	if (this != &copy)
-		this->type = copy.type;
+	if (this == &copy)
+		return (*this);
+	
+	delete brain;
+
+	type = copy.type;
+	brain = new Brain(*copy.brain);
 	return (*this);
 }
 

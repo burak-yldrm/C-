@@ -7,7 +7,7 @@ Animal::Animal() : type("Animal")
 #endif
 }
 
-Animal::Animal(const std::string &type) : type(type)
+Animal::Animal(const std::string &_type) : type(_type)
 {
 #ifdef DEBUG
 	std::cout << "Animal constructor called" << std::endl;
@@ -31,9 +31,6 @@ Animal::~Animal()
 
 Animal &Animal::operator=(const Animal &copy)
 {
-#ifdef DEBUG
-	std::cout << "Animal assignation operator called" << std::endl;
-#endif
 	if (this != &copy)
 		this->type = copy.type;
 	return (*this);

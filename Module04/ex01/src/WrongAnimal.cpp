@@ -7,7 +7,7 @@ WrongAnimal::WrongAnimal() : type("WrongAnimal")
 #endif
 }
 
-WrongAnimal::WrongAnimal(const std::string &type) : type(type)
+WrongAnimal::WrongAnimal(const std::string &_type) : type(_type)
 {
 #ifdef DEBUG
 	std::cout << "WrongAnimal constructor called" << std::endl;
@@ -24,9 +24,6 @@ WrongAnimal::WrongAnimal(const WrongAnimal &copy)
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &copy)
 {
-#ifdef DEBUG
-	std::cout << "WrongAnimal assignation operator called" << std::endl;
-#endif
 	if (this != &copy)
 		this->type = copy.type;
 	return (*this);

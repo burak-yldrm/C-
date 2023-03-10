@@ -1,22 +1,24 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : Animal("Cat"), brain(new Brain())
 {
 #ifdef DEBUG
 	std::cout << "Cat constructor called" << std::endl;
 #endif
 }
 
-Cat::Cat(const Cat &copy)
+Cat::Cat(const Cat &copy) : Animal()
 {
 #ifdef DEBUG
 	std::cout << "Cat copy constructor called" << std::endl;
 #endif
-	*this = copy;
+	type = copy.type;
+	brain = new Brain(*copy.brain);
 }
 
 Cat::~Cat()
 {
+	delete brain;
 #ifdef DEBUG
 	std::cout << "Cat destructor called" << std::endl;
 #endif
@@ -24,11 +26,12 @@ Cat::~Cat()
 
 Cat &Cat::operator=(const Cat &copy)
 {
-#ifdef DEBUG
-	std::cout << "Cat assignation operator called" << std::endl;
-#endif
-	if (this != &copy)
-		this->type = copy.type;
+	if (this == &copy)
+		return (*this);
+	
+	delete brain;
+	type = copy.type;
+	brain = new Brain(*copy.brain);
 	return (*this);
 }
 

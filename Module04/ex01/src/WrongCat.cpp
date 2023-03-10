@@ -7,7 +7,7 @@ WrongCat::WrongCat() : WrongAnimal("WrongCat")
 #endif
 }
 
-WrongCat::WrongCat(const WrongCat &copy)
+WrongCat::WrongCat(const WrongCat &copy) : WrongAnimal()
 {
 #ifdef DEBUG
 	std::cout << "WrongCat copy constructor called" << std::endl;
@@ -17,9 +17,6 @@ WrongCat::WrongCat(const WrongCat &copy)
 
 WrongCat &WrongCat::operator=(const WrongCat &copy)
 {
-#ifdef DEBUG
-	std::cout << "WrongCat assignation operator called" << std::endl;
-#endif
 	if (this != &copy)
 		this->type = copy.type;
 	return (*this);

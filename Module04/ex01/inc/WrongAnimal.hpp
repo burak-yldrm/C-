@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-#define DEBUG
+//#define DEBUG
 
 class WrongAnimal
 {
@@ -10,7 +10,7 @@ class WrongAnimal
 		std::string	type;
 	public:
 		WrongAnimal();
-		WrongAnimal(const std::string &type);
+		WrongAnimal(const std::string &_type);
 		WrongAnimal(const WrongAnimal &copy);
 		WrongAnimal &operator=(const WrongAnimal &copy);
 		virtual ~WrongAnimal();
