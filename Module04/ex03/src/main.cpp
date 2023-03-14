@@ -21,7 +21,10 @@ int main()
 	me->equip(tmp);
 
 	me->use(0, *me);
-	me->use(1, *me);
+	//me->unequip(0);
+	//me->equip(tmp);
+	//me->use(1, *me);
+	me->unequip(1);
 
 	ICharacter* bob = new Character("bob");
 
