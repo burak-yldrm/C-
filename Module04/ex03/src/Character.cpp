@@ -64,14 +64,14 @@ void Character::equip(AMateria* m)
 			return ;
 		}
 	}
-	std::cout << "Inventory is full" << std::endl;
+	std::cout << "Equip: Inventory is full" << std::endl;
 	delete m;
 }
 
 void Character::unequip(int idx)
 {
-	if (!_inventory[idx])
-		std::cout << "No materia at index " << idx << std::endl;
+	if (!_inventory[idx] || idx < 0 || idx >= 4)
+		std::cout << "Unequip: No materia at index " << idx << std::endl;
 	else if (idx >= 0 && idx < 4)
 	{
 		_floor[idx] = _inventory[idx];
@@ -83,4 +83,6 @@ void Character::use(int idx, ICharacter& target)
 {
 	if (idx >= 0 && idx < 4 && _inventory[idx])
 		_inventory[idx]->use(target);
+	else
+		std::cout << "Use: No materia at index " << idx << std::endl;
 }

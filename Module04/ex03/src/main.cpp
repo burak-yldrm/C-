@@ -21,10 +21,12 @@ int main()
 	me->equip(tmp);
 
 	me->use(0, *me);
-	//me->unequip(0);
-	//me->equip(tmp);
-	//me->use(1, *me);
+	me->unequip(0);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->use(1, *me);
 	me->unequip(1);
+	me->unequip(10);
 
 	ICharacter* bob = new Character("bob");
 
