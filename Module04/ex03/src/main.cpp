@@ -19,6 +19,10 @@ int main()
 	me->equip(tmp);
 	tmp = src->createMateria("cure");
 	me->equip(tmp);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
 
 	me->use(0, *me);
 	me->unequip(0);
@@ -26,7 +30,22 @@ int main()
 	me->equip(tmp);
 	me->use(1, *me);
 	me->unequip(1);
-	me->unequip(10);
+	me->unequip(0);
+	me->unequip(1);
+	me->unequip(2);
+	me->unequip(3);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
+		tmp = src->createMateria("cure");
+	me->equip(tmp);
+	me->unequip(0);
+	me->unequip(1);
+	me->unequip(2);
+	me->unequip(3);
 
 	ICharacter* bob = new Character("bob");
 

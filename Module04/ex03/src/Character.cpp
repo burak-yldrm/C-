@@ -70,10 +70,12 @@ void Character::equip(AMateria* m)
 
 void Character::unequip(int idx)
 {
-	if (!_inventory[idx] || idx < 0 || idx >= 4)
+	if (idx < 0 || idx >= 4 || !_inventory[idx])
 		std::cout << "Unequip: No materia at index " << idx << std::endl;
-	else if (idx >= 0 && idx < 4)
+	else if (idx >= 0 && idx < 4 && _inventory[idx])
 	{
+		if (_floor[idx])
+			delete _floor[idx];
 		_floor[idx] = _inventory[idx];
 		_inventory[idx] = NULL;
 	}
