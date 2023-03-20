@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#define DEBUG
+
 class Brain
 {
 	private:

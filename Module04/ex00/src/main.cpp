@@ -23,5 +23,11 @@ int main()
 	wrong_i->makeSound();
 	wrong_meta->makeSound();
 
+	delete meta;
+	delete j;
+	delete i;
+	delete wrong_meta;
+	delete wrong_i;
+
 	return 0;
 }
